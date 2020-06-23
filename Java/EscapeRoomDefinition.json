@@ -1,0 +1,473 @@
+{
+	"controls" : [
+		{
+			"description" : "Lock or unlock the magnets that hold the piano in place.",
+			"displayName" : "Piano magnets",
+			"enabled": false,
+			"id" : 0,
+			"index" : 0,
+			"interface" : "pianoKeysMagnets",
+			"name" : "pianoMagnets",
+			"states" : [
+				{
+					"description" : "",
+					"name" : "Off",
+					"value" : "off"
+				}, {
+					"description" : "",
+					"name" : "On",
+					"value" : "on"
+				}
+			],
+			"type" : "select"
+		}, {
+			"description" : "State of the LED lights.",
+			"displayName" : "Lighting controller",
+			"enabled": true,
+			"id" : 1,
+			"index" : 1,
+			"interface" : "lighting",
+			"name": "lighting",
+			"states" : [
+				{
+					"description" : "Red lights when the ship comes under attack.",
+					"name" : "Attack",
+					"value" : "attack"
+				}, {
+					"description" : "Flickering lights for three seconds when the ship takes damage, then returns to normal.",
+					"name" : "Damage",
+					"value" : "damage"
+				}, {
+					"description" : "Lights slowly fade to 20% darkness while the failure screen is presented, and then returns to normal.",
+					"name" : "Failure",
+					"value" : "failure"
+				}, {
+					"description" : "Full white for maintenance.",
+					"name" : "Maintenance",
+					"value" : "maintenance"
+				}, {
+					"description" : "Amber color.",
+					"name" : "Normal",
+					"value" : "normal"
+				}, {
+					"description" : "Lights off.",
+					"name" : "Off",
+					"value" : "off"
+				}, {
+					"description" : "Flickering amber for 20 seconds until the success screen is presented, and then returns to normal.",
+					"name" : "Victory",
+					"value" : "victory"
+				}
+			],
+			"type" : "select"
+		}, {
+			"description" : "Change the spawn point of the game engine.",
+			"displayName" : "Unity game engine",
+			"enabled": false,
+			"id" : 2,
+			"index" : 2,
+			"interface" : "gameEngine",
+			"name" : "gameEngine",
+			"states" : [
+				{
+					"description" : "First area, > 30 minutes left.",
+					"index" : 0,
+					"name" : "Monument Valley",
+					"value" : "spawn0"
+				}, {
+					"description" : "Second area, > 25 minutes left.",
+					"index" : 1,
+					"name" : "Deep Jellyfish Sea",
+					"value" : "spawn1"
+				}, {
+					"description" : "Third area, > 20 minutes left.",
+					"index" : 2,
+					"name" : "Pirate Ship Graveyard",
+					"value" : "spawn2"
+				}, {
+					"description" : "Fourth area, > 15 minutes left.",
+					"index" : 3,
+					"name" : "Whale Ocean",
+					"value" : "spawn3"
+				}, {
+					"description" : "Fifth area, > 10 minutes left.",
+					"index" : 4,
+					"name" : "Volcano",
+					"value" : "spawn4"
+				}, {
+					"description" : "Sixth area, > 5 minutes left.",
+					"index" : 5,
+					"name" : "Kraken encounter",
+					"value" : "spawn5"
+				}, {
+					"description" : "Submarine falls to floor and lights go out.",
+					"index" : 6,
+					"name" : "Failure",
+					"value" : "fail"
+				}
+			],
+			"type" : "select"
+		}, {
+			"description" : "Spray a puff of smoke from the fuse mechanism.",
+			"displayName" : "Fuse smoke spray",
+			"enabled": true,
+			"id" : 3,
+			"index" : 3,
+			"interface" : "mapCoordinates",
+			"name" : "fuseSmoke",
+			"states" : [
+				{
+					"description" : "",
+					"name" : "Off",
+					"value" : "off"
+				}, {
+					"description" : "",
+					"name" : "On",
+					"value" : "on"
+				}
+			],
+			"type" : "select"
+		}, {
+			"description" : "Nemo's study thermal printer hint dispenser.",
+			"displayName" : "Nemo study's hints",
+			"enabled": false,
+			"id" : 4,
+			"index" : 4,
+			"interface" : "hintsStudyScale",
+			"name" : "studyHints",
+			"states" : [],
+			"type" : "text"
+		}
+	],
+
+	"interfaces" : [
+		{
+			"description" : "Networked microcontroller conrolling the bridge fuel gauge.",
+			"displayName" : "Bridge's fuel gauge",
+			"enabled": false,
+			"index" : 0,
+			"initializable" : true,
+			"location" : "192.168.2.0",
+			"name" : "fuelGaugeBridge",
+			"returnInterface" : "server"
+		}, {
+			"description" : "Networked microcontroller conrolling the study fuel gauge.",
+			"displayName" : "Study's fuel gauge",
+			"enabled": false,
+			"index" : 1,
+			"initializable" : true,
+			"location" : "192.168.2.0",
+			"name" : "fuelGaugeStudy",
+			"returnInterface" : "server"
+		}, {
+			"description" : "Networked microcontroller conrolling the bridge fuse puzzle.",
+			"displayName" : "Fuse puzzle",
+			"enabled": false,
+			"index" : 2,
+			"initializable" : true,
+			"location" : "192.168.2.0",
+			"name" : "fuses",
+			"returnInterface" : "server"
+		}, {
+			"description" : "Web server in the Nautilus game engine.",
+			"displayName" : "Unity game engine",
+			"enabled": false,
+			"index" : 3,
+			"initializable" : true,
+			"location" : "192.168.2.13",
+			"name" : "gameEngine",
+			"returnInterface" : "server"
+		}, {
+			"description" : "Networked Arduino controlling the bridge hints through a thermal printer.",
+			"displayName" : "Bridge hints",
+			"enabled": false,
+			"index" : 4,
+			"initializable" : true,
+			"location" : "192.168.2.0",
+			"name" : "hintsBridge",
+			"returnInterface" : "server"
+		}, {
+			"description" : "Networked Arduino controlling the study hints through a thermal printer and the scale weight puzzle.",
+			"displayName" : "Study hints",
+			"enabled": false,
+			"index" : 5,
+			"initializable" : true,
+			"location" : "192.168.2.0",
+			"name" : "hintsStudyScale",
+			"returnInterface" : "server"
+		}, {
+			"description" : "Networked Arduino controlling the lighting for both rooms.",
+			"displayName" : "Lighting",
+			"enabled": false,
+			"index" : 6,
+			"initializable" : true,
+			"location" : "192.168.1.141",
+			"name" : "lighting",
+			"returnInterface" : "server"
+		}, {
+			"description" : "Networked Arduino controlling the map coordinate potentiometers.",
+			"displayName" : "Map coordinates",
+			"enabled": true,
+			"index" : 7,
+			"initializable" : true,
+			"location" : "192.168.1.141",
+			"name" : "mapCoordinates",
+			"returnInterface" : "server"
+		}, {
+			"description" : "Networked Arduino controlling the Morse code puzzle.",
+			"displayName" : "Morse code",
+			"enabled": false,
+			"index" : 8,
+			"initializable" : true,
+			"location" : "192.168.1.0",
+			"name" : "morseCode",
+			"returnInterface" : "server"
+		}, {
+			"description" : "Networked Arduino reading the piano keys and controlling the piano magnets.",
+			"displayName" : "Piano keys and magnets",
+			"enabled": false,
+			"index" : 9,
+			"initializable" : true,
+			"location" : "192.168.1.0",
+			"name" : "pianoKeysMagnets",
+			"returnInterface" : "server"
+		}, {
+			"description" : "Destination game server that receives a control's commands.",
+			"displayName" : "Game server",
+			"enabled": true,
+			"index" : 10,
+			"initializable" : false,
+			"location" : "192.168.1.101:8081",
+			"name" : "server",
+			"returnInterface" : ""
+		}
+	],
+
+	"displayName" : "Save the Nautilus!",
+	"length" : 3600,
+	"name" : "SaveTheNautilus",
+
+	"objectiveGroups" : [
+		{
+			"controlSequence" : {
+				"complete" : [
+					{
+						"delay" : 5,
+						"enabled" : true,
+						"name" : "hints",
+						"order" : 0,
+						"value" : "image0.jpg"
+					}, {
+						"delay" : 5,
+						"enabled" : true,
+						"name" : "pianoMagnets",
+						"order" : 1,
+						"value" : "off"
+					}, {
+						"delay" : 0,
+						"enabled" : true,
+						"name" : "studySound",
+						"order" : 2,
+						"value" : "latch"
+					}
+				],
+				"fail" : [
+					{
+						"delay" : 0,
+						"enabled" : true,
+						"name" : "gameEngine",
+						"order" : 0,
+						"value" : "fail"
+					}, {
+						"delay" : 0,
+						"enabled" : true,
+						"name" : "lightingController",
+						"order" : 1,
+						"value" : "failure"
+					}
+				]
+			},
+			"displayName" : "Nemo's study",
+			"enabled": true,
+			"index" : 0,
+			"name" : "study",
+			"objectives" : [
+				{
+					"controlSequence" : {
+						"complete" : [
+							{
+								"delay" : 5,
+								"enabled" : true,
+								"name" : "studyHints",
+								"order" : 0,
+								"value" : "image1.jpg"
+							}
+						]
+					},
+					"description" : "Enter the coordinates of Nemo's favorite destinations from his journal into the five dials: lat1, lon1; lat2, lon2; lat3, lon3; lat4, lon4; lat5, lon5.",
+					"displayName" : "Map coordinates",
+					"enabled": true,
+					"index" : 0,
+					"interface" : "mapCoordinates",
+					"name" : "mapCoordinates"
+				}, {
+					"controlSequence" : {
+						"complete" : [
+							{
+								"delay" : 5,
+								"enabled" : true,
+								"name" : "hints",
+								"order" : 0,
+								"value" : "image2.jpg"
+							}
+						]
+					},
+					"description" : "Enter morse code to the star light sensor using the signal light: HELP US = .... . ._.. .__. .._ ...",
+					"displayName" : "Morse code",
+					"enabled": true,
+					"index" : 1,
+					"interface" : "microcontroller",
+					"name" : "morseCode"
+				}, {
+					"controlSequence" : {
+						"complete" : [
+							{
+								"delay" : 5,
+								"enabled" : true,
+								"name" : "hints",
+								"order" : 0,
+								"value" : "image3.jpg"
+							}
+						]
+					},
+					"description" : "Play the five notes that result from the other puzzles.",
+					"displayName" : "Piano",
+					"enabled": true,
+					"index" : 2,
+					"interface" : "microcontroller",
+					"name" : "piano"
+				}, {
+					"controlSequence" : {
+						"complete" : [
+							{
+								"delay" : 5,
+								"enabled" : true,
+								"name" : "hints",
+								"order" : 0,
+								"value" : "image4.jpg"
+							}
+						]
+					},
+					"description" : "Place the correct books onto the scales.",
+					"displayName" : "Scales",
+					"enabled": true,
+					"index" : 3,
+					"interface" : "microcontroller",
+					"name" : "scales"
+				}
+			]
+		},{
+			"controlSequence" : {
+				"complete" : [
+					{
+						"delay" : 10,
+						"enabled" : true,
+						"name" : "lightingController",
+						"order" : 0,
+						"value" : "victory"
+					}
+				],
+				"fail" : [
+					{
+						"delay" : 0,
+						"enabled" : true,
+						"name" : "fuseSmoke",
+						"order" : 1,
+						"value" : "Off"
+					}
+				]
+			},
+			"displayName" : "The Nautilus",
+			"enabled": true,
+			"index" : 1,
+			"name" : "submarine",
+			"objectives" : [
+				{
+					"description" : "Press the electrify button after the fuses have been replaced.",
+					"displayName" : "Electrify",
+					"enabled": true,
+					"index" : 1,
+					"interface" : "microcontroller",
+					"name" : "electrify"
+				}, {
+					"controlSequence" : {
+						"complete" : [
+							{
+								"delay" : 5,
+								"enabled" : true,
+								"name" : "fuseSmoke",
+								"order" : 0,
+								"value" : "On"
+							},
+							{
+								"delay" : 5,
+								"enabled" : true,
+								"name" : "fuseSmoke",
+								"order" : 1,
+								"value" : "Off"
+							}
+						]
+					},
+					"description" : "Replace the fuses for the electrify mechanism with those found in the desk.",
+					"displayName" : "Fuses",
+					"enabled": true,
+					"index" : 0,
+					"interface" : "microcontroller",
+					"name" : "fuses"
+				}, {
+					"description" : "Reach the final port with the submarine.",
+					"displayName" : "Port",
+					"enabled": true,
+					"index" : 2,
+					"interface" : "gameEngine",
+					"name" : "port"
+				}
+			]
+		}
+	],
+
+	"timeControls" : [
+		{
+			"controlSequence" : [
+				{
+					"controlName" : "hints",
+					"delay" : 1800,
+					"deleteIfObjectiveCompletes" : [
+						{
+							"type" : "objectiveGroup",
+							"name" : "study"
+						}
+					],
+					"enabled" : true,
+					"name" : "30minuteStudyWarning",
+					"order" : 0,
+					"value" : "You must hurry!  The ship only has about 30 minutes of fuel left!"
+				}, {
+					"controlName" : "lightingController",
+					"delay" : 600,
+					"deleteIfObjectiveCompletes" : [],
+					"enabled" : true,
+					"name" : "10minuteFuelWarning",
+					"order" : 1,
+					"value" : "fuelIndication"
+				}
+			],
+			"description" : "Lights up the fuel indicator at the 30 minute mark.",
+			"displayName" : "30 minute fuel indicator",
+			"enabled": true,
+			"id" : 0,
+			"index" : 0,
+			"name" : "fuelIndicator"
+		}
+	]
+}
