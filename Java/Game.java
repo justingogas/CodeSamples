@@ -573,9 +573,8 @@ public class Game {
 				if ((boolean)controlInList.get("enabled")) {
 
 					// Get the interface and check its enabled flag to tell if the interface is active, and thus if the control is active.
-System.out.println((String)controlInList.get("interface"));
 					HashMap controlInterface = getInterfaceByInterfaceName((String)controlInList.get("interface"));
-System.out.println(controlInterface);
+
 					// Add an active field for its connection status.  Set to true once the control is initialized.	
 					if (controlInterface != null && (boolean)controlInterface.get("active")) {
 						controlItem.put("active", true);
@@ -693,7 +692,7 @@ System.out.println(controlInterface);
 		// Run a control by getting its interface and sending the value for the control to the device in an HTTP request.
 		//public JSONObject runControl(int inputControlId, String inputControlValue) {
 		public JSONObject runControl(String inputControlName, String inputControlValue) {
-	System.out.println("in runControl: controlName = " + inputControlName + ", controlValue = " + inputControlValue);
+
 			JSONObject message = new JSONObject();
 
 			String interfaceLocation = getInterfaceLocationByControlName(inputControlName);
@@ -708,7 +707,7 @@ System.out.println(controlInterface);
 				connection.setRequestMethod("POST");
 				connection.setDoOutput(true);
 				connection.setConnectTimeout(5000);
-	System.out.println("sending control to http://" + interfaceLocation);
+
 				// Add the hint to the parameters.
 				DataOutputStream outputStream = new DataOutputStream(connection.getOutputStream());
 				outputStream.writeBytes(parameters);
@@ -1001,7 +1000,7 @@ System.out.println(controlInterface);
 				connection.setRequestMethod("POST");
 				connection.setDoOutput(true);
 				connection.setConnectTimeout(5000);
-System.out.println("sending to interface URL http://" + inputInterfaceLocation);
+
 				// Add the hint to the parameters.
 				DataOutputStream outputStream = new DataOutputStream(connection.getOutputStream());
 				outputStream.writeBytes(parameters);
